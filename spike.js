@@ -8,19 +8,16 @@ var word = ["w", "o", "r", "d", " ", "o", "n", "e"]
 var currentIndex = 0
 var currentLetter = word[currentIndex]
 
+
 typingFunction = function(event) {
-  if (String.fromCharCode(event.charCode) === currentLetter) {
-    console.log("success");
-    console.log(event.charCode);
-    console.log(currentIndex)
-    console.log(currentLetter)
-    currentIndex += 1
-    currentLetter = word[currentIndex]
+  if (currentIndex < word.length) {
+      if (String.fromCharCode(event.charCode) === currentLetter) {
+      currentIndex += 1
+      currentLetter = word[currentIndex]
+    } else {
+    }
   } else {
-    console.log("failure");
-    console.log(event.charCode)
-    console.log(currentIndex)
-    console.log(currentLetter)
+    alert("You're finished! Wahoo!")
   }
 }
 
