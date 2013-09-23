@@ -4,20 +4,23 @@
 //two local variables within the function that dictate where we are in the word and the word itself
 
 
+var word = ["w", "o", "r", "d", " ", "o", "n", "e"]
+var currentIndex = 0
+var currentLetter = word[currentIndex]
+
 typingFunction = function(event) {
-  if (event.charCode === 87) {
+  if (String.fromCharCode(event.charCode) === currentLetter) {
     console.log("success");
-    console.log(event.charCode)
+    console.log(event.charCode);
+    console.log(currentIndex)
+    console.log(currentLetter)
+    currentIndex += 1
+    currentLetter = word[currentIndex]
   } else {
     console.log("failure");
     console.log(event.charCode)
+    console.log(currentIndex)
+    console.log(currentLetter)
   }
 }
-//typingFunction = function(event) {
-//   if event.charCode == "87" {
-//     alert("you're correct")
-//   } else {
-//     alert("type a W")
-//   }
-// }
 
