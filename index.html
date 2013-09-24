@@ -1,1 +1,11 @@
+<form>
+<input id="inputBox" type="text">
+</form>
+<script src="js_source.js"></script>
+<script>
+document.onreadystatechange = function () {
+  inputBox = document.getElementById('inputBox');
+  bindListenersForInputBox(inputBox);
+};
+</script>
 
