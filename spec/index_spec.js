@@ -21,18 +21,17 @@ describe("Type follow", function() {
 
   it ("returns a success with any word given and expected", function() {
     var charCodes = [110, 111]
-    expect(typeFollow(charCodes, "no")).toBe("Success!");
-  });
-
-  it ("returns a fail with word given but not expected", function() {
-    var charCodes = [110, 109]
-    expect(typeFollow(charCodes, "no")).toBe("Fail!");
+    expect(typeFollow(charCodes, "no")).toBe("Success!Success!");
   });
 
   it ("returns feedback on each letter", function() {
     var charCodes = [110, 109]
-    typeFollow(charCodes, "no")
-    expect(index.html("body")).toContain("Success! Fail!");
+    expect(typeFollow(charCodes, "no")).toBe("Success!Fail!");
+  });
+
+  it ("returns feedback on each letter", function() {
+    var charCodes = [110, 109]
+    expect(typeFollow(charCodes, "no")).toBe("Success!Fail!");
   });
 });
 
