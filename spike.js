@@ -4,22 +4,47 @@
 //two local variables within the function that dictate where we are in the word and the word itself
 
 
-var word = ["w", "o", "r", "d"]
+var word = ["w", "o", "r", "d", " ", "o", "n", "e"]
 var currentIndex = 0
-var currentLetter = word[currentIndex]
+// var typedChar = ""
 
+function restart() {
+  document.getElementById('box').setAttribute("type", "text")
+  document.getElementById('box').value = ""
+  printText()
+  currentIndex = 0
+}
 
 typingFunction = function(event) {
-  if (currentIndex < word.length) {
-      if (String.fromCharCode(event.charCode) === currentLetter) {
-      currentIndex += 1
-      currentLetter = word[currentIndex]
+  var typedChars = document.forms["input"]["box"].value
+
+  if (typedChars.length < word.slice(0, currentIndex+1).length){
+    currentIndex--
+    currentIndex--
+  }
+  var currentLetter = word[currentIndex]
+  if (currentIndex === (word.length-1)) {
+    if (typedChars[typedChars.length-1] === currentLetter) {
       document.getElementById('box').style.backgroundColor="white"
-    } else {
+      document.getElementById('text').innerHTML = "You're done!"
+      document.getElementById('box').value = "play again"
+      document.getElementById('box').setAttribute("type", "button")
+    } 
+    else {
       document.getElementById('box').style.backgroundColor="red"
     }
-  } else {
-    alert("You're finished! Wahoo!")
+  }
+  else {
+    if (typedChars === word.slice(0, currentIndex+1).join("")) {
+      currentLetter = word[currentIndex]
+      document.getElementById('box').style.backgroundColor="white"
+    } 
+    else {
+      document.getElementById('box').style.backgroundColor="red"
+    }
+    if (typedChars.length === word.slice(0, currentIndex+1).length) {
+      currentIndex += 1
+    }
   }
 }
 
