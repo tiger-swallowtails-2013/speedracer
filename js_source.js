@@ -4,17 +4,22 @@
 // type follow is dealing with char characters; 
 //create function to handle that separately
 
-var typeFollow = function(charCodes, expectedWord) {
-  var feedbackStr = ""
-  for(var i = 0; i < charCodes.length; i++){
-    if (String.fromCharCode(charCodes[i]) != expectedWord[i]) {
-      feedbackStr += "Fail!";
-    } 
-    else {
-    feedbackStr += "Success!";
-    }
+var typeFollow = function(gameTextInput, expectedText) {
+  var result = ""
+  if (gameTextInput != expectedText) {
+    result = "Fail!";
+  } 
+  else {
+    result = "Success!";
   }
-  return feedbackStr
+  return result
 };
 
 
+var inputReceive = function(){
+  // console.log(expectedText = document.getElementById("expectedText"));
+  expectedText = document.getElementById("expectedText").innerHTML;
+  gameTextInput = document.getElementById("gameTextInput").innerHTML;//.addEventListener("
+    // input", typeFollow(input, expectedText));
+  return typeFollow(gameTextInput, expectedText);
+};
