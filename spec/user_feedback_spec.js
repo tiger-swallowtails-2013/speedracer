@@ -1,27 +1,31 @@
 describe ('word_highlight', function(){
-  var text;
-  var sentence;
+  var text, span1;
   beforeEach(function(){
-    text = document.createElement('p');
-    text.id = "text_to_type";
-    text.innerHTML = "type these words";
-    sentence = [text.innerHTML.split(" ")];
-    console.log(sentence);
-    document.body.appendChild(text);
+    span1 = document.createElement('span');
+    span1.id = "word1";
+    span1.innerHTML = "type";
+    document.body.appendChild(span1);
+    span2 = document.createElement('span');
+    span2.id = "word2";
+    span2.innerHTML = "these";
+    document.body.appendChild(span2);
   });
   afterEach(function(){
-    document.body.removeChild(text);
+    document.body.removeChild(span1);
+    document.body.removeChild(span2);
   });
 
   it ('highlight first word', function(){
-    // document.getElementById("text_to_type").style.color = "green";
     changeColor();
-    expect(text.style.color).toBe('green');
+    expect(span1.style.color).toBe('green');
   });
 
-  xit ('highlight subsequent word after previous word is typed correctly')
+  it ('highlight subsequent word after previous word is typed correctly', function(){
+    changeColor();
+    expect(span2.style.color).toBe('green');
+  });
 });
 
-describe ('show_typing_error', function(){
+// describe ('show_typing_error', function(){
   
-});
+// });
