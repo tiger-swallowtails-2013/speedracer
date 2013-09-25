@@ -1,19 +1,40 @@
-// that the typefollow function returns a success or failure based on key input
-// if it's a success it moves on to next character of word
-// if it's a failure it keeps the same character expectation
-// the timer starts
-// the timer ends
-// alert sounds when end of sentence text is reached
-// alert tells wpm
+describe ('typing in box', function() {
+  var inputBox; var expectedText;
 
-
-
-describe("Type follow", function() {
-  xit ("returns a success with letter 'm' given and expected", function() {
-    expect(typeFollow(109)).toBe("Success! You typed 'm'!");
+  beforeEach ( function() {
+    inputBox = document.createElement('input');
+    inputBox.id = 'inputBox';
+    document.body.appendChild(inputBox);
+    inputBox.value = "I'm the inputbox!";
+    expectedText = document.createElement('p');
+    expectedText.id = "expectedText";
+    expectedText.value = "work damn it!"
+    bindListenersForInputBox(inputBox);
   });
 
-  xit ("returns a failure with letter 'z' given but not expected", function() {
-    expect(typeFollow(122)).toBe("Fail! You did not type 'm'!");
+  afterEach (function() {
+    document.body.removeChild(inputBox);
   });
-});
+  
+  it ('tracks what we have typed', function() {
+    inputBox.dispatchEvent(new Event('input'));
+    expect(typeFollow()).toEqual(inputBox.value);
+  });
+
+  it ('returns true if written text matches expected', function() {
+    expectedText.value = "I'm the inputbox!";
+    document.body.appendChild(expectedText);
+    inputBox.dispatchEvent(new Event('input'));
+    expect(compareText()).toEqual('True');
+    document.body.removeChild(expectedText);
+  });
+
+  it ('returns false if written text does not match expected', function() {
+    expectedText.value = "I'm not the inputbox!";
+    document.body.appendChild(expectedText);
+    inputBox.dispatchEvent(new Event('input'));
+    expect(compareText()).toEqual('False');
+    document.body.removeChild(expectedText);
+  }); //it
+}); //context
+
