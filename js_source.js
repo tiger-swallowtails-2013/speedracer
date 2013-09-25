@@ -22,18 +22,18 @@ function bindListenersForInputBox(inputBox) {
 function Timer() {
   var startTime, endTime;
 
-  Timer.prototype.startTimer= function(event) {
+  this.startTimer= function(event) {
     startTime = new Date().getTime();
     inputBox.removeEventListener("keypress", timer.startTimer);
     return startTime;
   };
 
-  Timer.prototype.endTimer= function() {
+  this.endTimer= function() {
     endTime = new Date().getTime();
     return endTime;
   }; //need to add 'event' arg that triggers endTimer
 
-  Timer.prototype.calculateTime= function(startTime, endTime){
+  this.calculateTime= function(startTime, endTime){
     return this.endTime - this.startTime;
   };
 };
