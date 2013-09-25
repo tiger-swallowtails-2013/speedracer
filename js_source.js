@@ -1,32 +1,40 @@
-function typeFollow(event) {
-  if (String.fromCharCode(event.charCode) === 'm') {
-    console.log("Success! You typed 'm'!");
+typeFollow = function () {
+  var inputBox = document.getElementById('inputBox');
+  var writtenText = inputBox.value;
+  return writtenText;
+};
+
+compareText = function () {
+  var writtenText = typeFollow();
+  var expectedText = document.getElementById("expectedText").value;
+  if (writtenText === expectedText) {
+    return "True";
   } else {
-    console.log("Fail! You did not type 'm'!");
+    return "False";
   }
-// console.log(result);
-}
+};
 
 function bindListenersForInputBox(inputBox) {
-  inputBox.addEventListener("keypress", typeFollow);
+  inputBox.addEventListener("input", compareText);
   inputBox.addEventListener("keypress", timer.startTimer);
 }
 
 function Timer() {
   var startTime, endTime;
 
-  Timer.prototype.startTimer= function(event) {
+  this.startTimer= function(event) {
     startTime = new Date().getTime();
     inputBox.removeEventListener("keypress", timer.startTimer);
     return startTime;
-  }
+  };
 
-  Timer.prototype.endTimer= function() {
+  this.endTimer= function() {
     endTime = new Date().getTime();
     return endTime;
-  } //need to add 'event' arg that triggers endTimer
+  }; //need to add 'event' arg that triggers endTimer
 
-  Timer.prototype.calculateTime= function(startTime, endTime){
+  this.calculateTime= function(startTime, endTime){
     return this.endTime - this.startTime;
-  }
-}
+  };
+};
+
