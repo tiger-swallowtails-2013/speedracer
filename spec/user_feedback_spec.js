@@ -16,13 +16,18 @@ describe ('word_highlight', function(){
   });
 
   it ('highlight first word', function(){
-    changeColor();
+    changeColor(1);
     expect(span1.style.color).toBe('green');
   });
 
   it ('highlight subsequent word after previous word is typed correctly', function(){
-    changeColor();
+    changeColor(2);
     expect(span2.style.color).toBe('green');
+  });
+
+  it ('return previous word to original color', function(){
+    changeColor(2);
+    expect(span1.style.color).toBe('black');
   });
 });
 
