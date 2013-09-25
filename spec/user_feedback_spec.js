@@ -31,6 +31,14 @@ describe ('word_highlight', function(){
   });
 });
 
-// describe ('show_typing_error', function(){
-  
-// });
+describe ('placeText', function(){
+  beforeEach(function())
+
+  it ('gets the first word'){
+
+  }
+  it ('shifts current_word into past_text'){}
+  it ('shifts new current_word from future_text'){}
+  it ('maintains continuity of original text'){}
+});
+
