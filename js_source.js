@@ -7,18 +7,26 @@ function typeFollow(event) {
 // console.log(result);
 }
 
-function startTimer(event) {
-  var startTime = new Date().getTime();
-  inputBox.removeEventListener("keypress", startTimer);
-}
-
-
 function bindListenersForInputBox(inputBox) {
   inputBox.addEventListener("keypress", typeFollow);
-  inputBox.addEventListener("keypress", startTimer);
+  inputBox.addEventListener("keypress", timer.startTimer);
 }
 
-document.addEventListener('readystatechange', function (e) {
-  console.log(e);
-  console.log(document.readyState);
-});
+function Timer() {
+  var startTime, endTime;
+
+  Timer.prototype.startTimer= function(event) {
+    startTime = new Date().getTime();
+    inputBox.removeEventListener("keypress", timer.startTimer);
+    return startTime;
+  }
+
+  Timer.prototype.endTimer= function() {
+    endTime = new Date().getTime();
+    return endTime;
+  } //need to add 'event' arg that triggers endTimer
+
+  Timer.prototype.calculateTime= function(startTime, endTime){
+    return this.endTime - this.startTime;
+  }
+}

@@ -1,6 +1,7 @@
 describe ('timer', function(){
   var input;
   beforeEach(function() {
+    timer = new Timer(); //determine way to pass in timer to bindListeners func so don't have to name timer same variable name as in production?
     input = document.createElement('textarea');
     input.id = "inputBox";
     document.body.appendChild(input);
@@ -11,14 +12,23 @@ describe ('timer', function(){
     document.body.removeChild(input);
   });
   it ('records start time on first keypress', function() {
-    expect(startTimer()).not.toBeNull();
+    input.dispatchEvent(new Event('keypress'));
+    expect(timer.startTime).toBeDefined;
   });
 
-  it ('records end time at completion of text', function() {
-    expect(endTimer()).not.toBeNull();
+  it('start time should not be defined when timer has not started', function() {
+    expect(timer.startTime).toBeUndefined;
   });
 
-  it ('the end time is greater than the start time', function() {
-    expect(startTimer()).toBeLessThan(endTimer());
+  it ('end time should be a number', function() {
+    expect(timer.endTimer()).toMatch(/\d+/);
+  });
+
+  // write test for end timer trigger
+
+  it ('calculates the difference in time', function() {
+    timer.startTime = 0;
+    timer.endTime = 10;
+    expect(timer.calculateTime()).toEqual(10);
   });
 });
