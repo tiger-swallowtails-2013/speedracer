@@ -9,6 +9,8 @@
 
 
 describe("Type follow", function() {
+  beforeEach () {}
+
   xit ("returns a success with letter 'm' given and expected", function() {
     expect(typeFollow(109)).toBe("Success! You typed 'm'!");
   });

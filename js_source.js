@@ -1,14 +1,10 @@
-function typeFollow(event) {
-  if (String.fromCharCode(event.charCode) === 'm') {
-    console.log("Success! You typed 'm'!");
-  } else {
-    console.log("Fail! You did not type 'm'!");
-  }
-// console.log(result);
-}
+var typeFollow = function () {
+  var written_text = inputBox.value
+  expectedText = document.getElementById("expectedText").innerHTML;
+};
 
 function bindListenersForInputBox(inputBox) {
-  inputBox.addEventListener("keypress", typeFollow);
+  inputBox.addEventListener("input", typeFollow);
   inputBox.addEventListener("keypress", timer.startTimer);
 }
 
@@ -30,3 +26,4 @@ function Timer() {
     return this.endTime - this.startTime;
   }
 }
+
