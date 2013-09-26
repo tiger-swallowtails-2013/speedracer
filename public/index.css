@@ -1,0 +1,45 @@
+#inputBox {
+  width: 270px;
+}
+
+#title_img {
+  background-image:url(title.png);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  height: 250px;
+}
+
+#all_text {
+  text-align: center;
+  color: white;
+}
+
+#text_box {
+  position: fixed;
+  top: 80%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -180px;
+  border-width: 10px;
+  border-color: white;
+  background-color: white;
+  padding: 40px;
+  padding-top: 10px;
+  border-radius: 25px;
+}
+
+#car {
+  height: 100px;
+  width: 10%;
+  position: fixed;
+  bottom: 0;
+}
+
+body {
+  background-image:url(spdrcr.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
