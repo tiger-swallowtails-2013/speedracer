@@ -10,16 +10,18 @@ function Game(){
     gameWords = new ShiftWords
     gameWords.initialize(textStorage());
     timer = new Timer();
-    inputBox = document.getElementById('inputBox');
-    bindListenersForInputBox(inputBox, this);
+    bindListeners(this);
   }
   this.end = function(){
     timer.endTimer();
     var totalTime = Math.round(timer.calculateTime()/1000);
-    alert("You finished in " + totalTime +" seconds")
-    //display stats
-    //reset game
+    alert("You finished in " + totalTime +" seconds");
+    inputBox.removeEventListener("input", game.checkUserInput);
   };
+  this.reset = function(){
+    document.getElementById("inputBox").value="";
+    that.start();
+  }
   this.checkUserInput = function(){
     if (gameWords.evaluate() === false){
       that.end();
