@@ -4,16 +4,17 @@ describe ('typing in box', function() {
   beforeEach ( function() {
     inputBox = document.createElement('input');
     inputBox.id = 'inputBox';
-    document.body.appendChild(inputBox);
     inputBox.value = "I'm the inputbox!";
+    document.body.appendChild(inputBox);
     expectedText = document.createElement('p');
     expectedText.id = "expectedText";
-    expectedText.value = "work damn it!"
+    document.body.appendChild(expectedText);
     bindListenersForInputBox(inputBox);
   });
 
   afterEach (function() {
     document.body.removeChild(inputBox);
+    document.body.removeChild(expectedText);
   });
   
   it ('tracks what we have typed', function() {
@@ -23,18 +24,14 @@ describe ('typing in box', function() {
 
   it ('returns true if written text matches expected', function() {
     expectedText.value = "I'm the inputbox!";
-    document.body.appendChild(expectedText);
     inputBox.dispatchEvent(new Event('input'));
     expect(compareText()).toEqual('True');
-    document.body.removeChild(expectedText);
   });
 
   it ('returns false if written text does not match expected', function() {
     expectedText.value = "I'm not the inputbox!";
-    document.body.appendChild(expectedText);
     inputBox.dispatchEvent(new Event('input'));
     expect(compareText()).toEqual('False');
-    document.body.removeChild(expectedText);
   }); //it
 }); //context
 

@@ -1,12 +1,32 @@
-<form>
-<input id="inputBox" type="text">
-</form>
-<script src="js_source.js"></script>
-<script>
-document.onreadystatechange = function () {
-  timer = new Timer();
-  inputBox = document.getElementById('inputBox');
-  bindListenersForInputBox(inputBox);
-};
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Speed Racer</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <div id="title_img"><p>W</p>
+      <p>T</p>
+      <p>F</p>
+      <p>!</p>
+      <p>?</p>
+      <p>!</p>
+      <p>?</p>
+      </div>
+  <div id='box'>
+    <p id="expectedText">Type me! </p>
+    <form>
+      <input id="inputBox" type="text">
+    </form>
+  </div>
+  <script src="js_source.js"></script>
+  <script>
+  document.onreadystatechange = function () {
+    timer = new Timer();
+    inputBox = document.getElementById('inputBox');
+    bindListenersForInputBox(inputBox);
+  };
+  </script>
+</body>
+</html>
 
