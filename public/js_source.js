@@ -5,27 +5,27 @@ compareText = function(word){
   } 
 };
 
-function bindListenersForInputBox(inputBox, gameWords) {
-  inputBox.addEventListener("input", gameWords.evaluate);
+function bindListenersForInputBox(inputBox, game) {
+  inputBox.addEventListener("input", game.checkUserInput);
   inputBox.addEventListener("keypress", timer.startTimer);
 }
 
 function Timer() {
-  var startTime, endTime;
+  var log = {}
 
   this.startTimer= function(event) {
     startTime = new Date().getTime();
     inputBox.removeEventListener("keypress", timer.startTimer);
-    return startTime;
+    log.startTime = startTime;
   };
 
   this.endTimer= function() {
     endTime = new Date().getTime();
-    return endTime;
-  }; //need to add 'event' arg that triggers endTimer
+    log.endTime = endTime;
+  };
 
-  this.calculateTime= function(startTime, endTime){
-    return this.endTime - this.startTime;
+  this.calculateTime= function(){
+    return log.endTime - log.startTime;
   };
 };
 

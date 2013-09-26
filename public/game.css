@@ -1,0 +1,16 @@
+body{
+  background-color: black;
+}
+
+#current {
+  color: orange;
+}
+
+#future {
+  color: #99CCFF;
+}
+
+#past {
+  color: #99CCFF;
+}
+
