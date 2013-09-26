@@ -1,56 +1,32 @@
-function changeColor(wordNum){
-  // document.getElementById("word" + wordNum).style.color = "green";
-  // if (wordNum >= 2){
-  //   document.getElementById("word" + (wordNum-1)).style.color = "black";
-  // }
-
-
-}
-
-// function selectWord(wordNum){
-//   for(var i = 1; i < 4; i++){
-//     changeColor(i);
-//   }
-// }
-
 function placeText(text, location){
-  document.getElementById(location).innerText = text
+  document.getElementById(location).innerText = text;
 }
 
+function ShiftWords(){
+  var strings = {};
+  var that = this;
+  this.initialize = function(original_string){
+    strings.past_text = "";
+    strings.current_word = "";
+    strings.future_text = original_string;
+    this.shift();
+    placeText(strings.past_text,"past");
+    placeText(strings.current_word,"current");
+    placeText(strings.future_text,"future");
+  };
+  this.evaluate = function(){
+    if (compareText(strings.current_word)){
+      that.shift();
+      placeText(strings.past_text,"past");
+      placeText(strings.current_word,"current");
+      placeText(strings.future_text,"future");
+    }
+  };
+  this.shift = function(){
+    i = strings.future_text.indexOf(" ");
+    strings.past_text += strings.current_word;
+    strings.current_word = strings.future_text.substring(0,i+1);
+    strings.future_text = strings.future_text.substring(i+1,strings.future_text.length);
+  };
+};
 
-function match(){
-  if(match === true){
-    shiftWords()
-  }
-
-}
-
-
-function shiftWords(original_string){
-  past_text = ""
-  past_text += current_word
-
-  i = future_text.indexOf(" ")
-  current_word = future_text.substring(0,i)
-
-  future_text = future_text.substring(i,future_text.length)
-}
-
-
-var wordShifter = new shiftWords("this is a string");
-if (wordCompare){
-  wordShifter.shift
-}
-
-
-
-// function textSplicer(){
-//   past_text: null
-//   current_word
-//   future_text
-// }
-
-function textStorage(){
-  var collection = ["The quick brown fox jumped over the lazy dog", "When it rains it pours", "The rain in spain falls mainly on the plain"]
-  return collection[Math.floor(Math.random() * collection.length)]
-}

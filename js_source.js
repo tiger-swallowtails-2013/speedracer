@@ -1,21 +1,12 @@
-typeFollow = function () {
-  var inputBox = document.getElementById('inputBox');
-  var writtenText = inputBox.value;
-  return writtenText;
+compareText = function(word){
+  inputText = document.getElementById('inputBox').value;
+  if (inputText === word) {
+    return true;
+  } 
 };
 
-compareText = function () {
-  var writtenText = typeFollow();
-  var expectedText = document.getElementById("expectedText").value;
-  if (writtenText === expectedText) {
-    return "True";
-  } else {
-    return "False";
-  }
-};
-
-function bindListenersForInputBox(inputBox) {
-  inputBox.addEventListener("input", compareText);
+function bindListenersForInputBox(inputBox, gameWords) {
+  inputBox.addEventListener("input", gameWords.evaluate);
   inputBox.addEventListener("keypress", timer.startTimer);
 }
 

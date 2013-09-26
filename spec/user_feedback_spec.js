@@ -35,7 +35,9 @@ describe ('placeText', function(){
   beforeEach(function())
 
   it ('gets the first word'){
-
+    currentSentence = "type this stuff"
+    document.createElement('span')
+    
   }
   it ('shifts current_word into past_text'){}
   it ('shifts new current_word from future_text'){}
