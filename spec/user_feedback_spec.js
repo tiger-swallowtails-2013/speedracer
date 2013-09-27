@@ -43,22 +43,33 @@
 // });
 
 describe ('endgame', function(){
-  it ('does not have a current_word'){
-    stringHandler = new ShiftWords();
-    stringHandler.initalize("A Test String")
-    currentWord = document.createElement("span").id = "current";
-    document.appendChild(currentWord);
+  it ('does not have a current_word', function(){
+    inputBox = document.createElement("inputBox")
+    inputBox.id = "inputBox";
+    document.body.appendChild(inputBox)
+    pastWord = document.createElement("span")
+    pastWord.id = "past";
+    document.body.appendChild(pastWord);
+    currentWord = document.createElement("span");
+    currentWord.id = "current";
+    document.body.appendChild(currentWord);
+    futureWord = document.createElement("span")
+    futureWord.id = "future";
+    document.body.appendChild(futureWord);
+    var stringHandler = new StringHandler();
+    stringHandler.initialize("A Test String");
     stringHandler.shift()
      stringHandler.shift()
       stringHandler.shift()
+      stringHandler.updateDom()
     expect(currentWord.innerText).toEqual("")
-  };
-  it ('displays the users time');
+  });
+  it ('displays the users time', function(){});
 });
 
 describe ('restartgame', function(){
-  it ('clears the input field');
-  it ('clears the time display');
-  it ('clears the past_text span element');
-  it ('populates the future_text span element');
+  it ('clears the input field', function(){});
+  it ('clears the time display', function(){});
+  it ('clears the past_text span element', function(){});
+  it ('populates the future_text span element', function(){});
 });

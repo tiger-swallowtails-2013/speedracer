@@ -1,13 +1,10 @@
-window.onload = function () {
-  game = new Game();
-  game.start();
-};
+
 
 function Game(){
   var gameWords;
   var that = this;
   this.start = function(){
-    gameWords = new ShiftWords
+    gameWords = new StringHandler()
     gameWords.initialize(textStorage());
     timer = new Timer();
     bindListeners(this);
