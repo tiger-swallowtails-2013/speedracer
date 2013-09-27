@@ -1,7 +1,3 @@
-function placeText(text, location){
-  document.getElementById(location).innerText = text;
-}
-
 function StringHandler(){
   var strings = {};
   var that = this;
@@ -14,9 +10,12 @@ function StringHandler(){
   };
   this.updateDom = function(){
     document.getElementById("inputBox").value="";
-    placeText(strings.past_text,"past");
-    placeText(strings.current_word,"current");
-    placeText(strings.future_text,"future");
+    this.placeText(strings.past_text,"past");
+    this.placeText(strings.current_word,"current");
+    this.placeText(strings.future_text,"future");
+  }
+  this.placeText = function(text, location){
+    document.getElementById(location).innerText = text;
   }
   this.evaluate = function(){
     if (compareText(strings.current_word)){
