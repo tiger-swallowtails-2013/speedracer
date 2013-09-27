@@ -1,17 +1,18 @@
 
 
 function Game(){
-  var gameWords;
+  var stringHandler;
   var that = this;
   this.start = function(){
-    gameWords = new StringHandler()
-    gameWords.initialize(textStorage());
+    stringHandler = new StringHandler()
+    stringHandler.initialize(textStorage());
     timer = new Timer();
     bindListeners(this);
   }
   this.end = function(){
     timer.endTimer();
     var totalTime = timer.calculateTime();
+
     document.getElementById("time").innerText = "You finished in " + totalTime +" seconds!"
     inputBox.removeEventListener("input", game.checkUserInput);
   };
@@ -21,7 +22,7 @@ function Game(){
     that.start();
   }
   this.checkUserInput = function(){
-    if (gameWords.evaluate() === false){
+    if (stringHandler.evaluate() === false){
       that.end();
     }
   }
