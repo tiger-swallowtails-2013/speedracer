@@ -13,6 +13,10 @@ function StringHandler(){
   }
 };
 
+StringHandler.prototype.placeText = function(text, location){
+    document.getElementById(location).innerText = text;
+  }
+
 StringHandler.prototype.updateDom = function(){
     document.getElementById("inputBox").value="";
     this.placeText(this.strings.past_text,"past");
