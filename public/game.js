@@ -10,11 +10,11 @@ function Game(){
     bindListeners(this);
   }
   this.end = function(){
+    inputBox.removeEventListener("input", game.checkUserInput);
     timer.endTimer();
     var totalTime = timer.calculateTime();
-
-    document.getElementById("time").innerText = "You finished in " + totalTime +" seconds!"
-    inputBox.removeEventListener("input", game.checkUserInput);
+    var results_string = "You finished in " + totalTime + " seconds!"
+    stringHandler.placeText(results_string, "time")
   };
   this.reset = function(){
     document.getElementById("inputBox").value="";
