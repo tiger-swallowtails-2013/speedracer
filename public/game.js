@@ -2,8 +2,7 @@ function Game(){
   var stringHandler;
   var that = this;
   this.start = function(){
-    stringHandler = new StringHandler()
-    stringHandler.initialize();
+    stringHandler = new StringHandler();
 
     timer = new Timer();
 
