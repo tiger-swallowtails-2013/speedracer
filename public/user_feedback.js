@@ -1,55 +1,55 @@
 function StringHandler(){
-  var strings = {};
-  var that = this;
-  this.initialize = function(){
-    strings.past_text = "";
-    strings.current_word = "";
-    strings.future_text = this.newGameText();
-    this.shift();
-    this.updateDom();
-  };
-  this.newGameText = function(){
-    var collection = [
-      "The quick brown fox jumped over the lazy dog.",
-      "When it rains it pours.",
-      "The rain in spain falls mainly on the plain."
-    ];
-    var n = Math.floor(Math.random() * collection.length)
-    return collection[n];
-  }
-  this.shift = function(){
-    var i = strings.future_text.indexOf(" ");
-    
-    if(strings.future_text === ""){
-      document.getElementById("inputBox").value="";
-      strings.past_text += strings.current_word;
-      strings.current_word = ""
-      return false;
-    }
-    if (i === -1){ 
-      strings.past_text += strings.current_word;
-      strings.current_word = strings.future_text;
-      strings.future_text = "";
-    } 
-    else {
-      strings.past_text += strings.current_word;
-      strings.current_word = strings.future_text.substring(0,i+1);
-      strings.future_text = strings.future_text.substring(i+1,strings.future_text.length);
-    }
-  };
+  var this.strings = {};
+
+  this.strings.past_text = "";
+  this.strings.current_word = "";
+  this.strings.future_text = this.newGameText();
+  this.shift();
+  this.updateDom();
+
   this.compareText = function(inputText){
-    if (inputText === strings.current_word) {
+    if (inputText === this.strings.current_word) {
       return true;
     }
   }
   this.updateDom = function(){
     document.getElementById("inputBox").value="";
-    this.placeText(strings.past_text,"past");
-    this.placeText(strings.current_word,"current");
-    this.placeText(strings.future_text,"future");
+    this.placeText(this.strings.past_text,"past");
+    this.placeText(this.strings.current_word,"current");
+    this.placeText(this.strings.future_text,"future");
   }
   this.placeText = function(text, location){
     document.getElementById(location).innerText = text;
   }
 };
 
+StringHandler.prototype.newGameText = function(){
+  var collection = [
+  "The quick brown fox jumped over the lazy dog.",
+  "When it rains it pours.",
+  "The rain in spain falls mainly on the plain."
+  ];
+  var n = Math.floor(Math.random() * collection.length)
+  return collection[n];
+}
+
+StringHandler.prototype.shift = function(){
+    var i = this.strings.future_text.indexOf(" ");
+    
+    if(this.strings.future_text === ""){
+      document.getElementById("inputBox").value="";
+      this.strings.past_text += this.strings.current_word;
+      this.strings.current_word = ""
+      return false;
+    }
+    if (i === -1){
+      this.strings.past_text += this.strings.current_word;
+      this.strings.current_word = this.strings.future_text;
+      this.strings.future_text = "";
+    }
+    else {
+      this.strings.past_text += this.strings.current_word;
+      this.strings.current_word = this.strings.future_text.substring(0,i+1);
+      this.strings.future_text = this.strings.future_text.substring(i+1,this.strings.future_text.length);
+    }
+  };
