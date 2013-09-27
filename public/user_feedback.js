@@ -8,30 +8,6 @@ function StringHandler(){
     this.shift();
     this.updateDom();
   };
-  this.updateDom = function(){
-    document.getElementById("inputBox").value="";
-    this.placeText(strings.past_text,"past");
-    this.placeText(strings.current_word,"current");
-    this.placeText(strings.future_text,"future");
-  }
-  this.placeText = function(text, location){
-    document.getElementById(location).innerText = text;
-  }
-  this.evaluate = function(){
-    if (that.compareText(strings.current_word)){
-      if(that.shift() === false){
-        that.updateDom()
-        return false
-      }
-      that.updateDom()
-    }
-  };
-  this.compareText = function(word){
-    var inputText = document.getElementById('inputBox').value;
-    if (inputText === word) {
-      return true;
-    }
-  }
   this.shift = function(){
     var i = strings.future_text.indexOf(" ");
     
@@ -52,5 +28,29 @@ function StringHandler(){
       strings.future_text = strings.future_text.substring(i+1,strings.future_text.length);
     }
   };
+  this.evaluate = function(){
+    if (that.compareText(strings.current_word)){
+      if(that.shift() === false){
+        that.updateDom()
+        return false
+      }
+      that.updateDom()
+    }
+  };
+  this.compareText = function(word){
+    var inputText = document.getElementById('inputBox').value;
+    if (inputText === word) {
+      return true;
+    }
+  }
+  this.updateDom = function(){
+    document.getElementById("inputBox").value="";
+    this.placeText(strings.past_text,"past");
+    this.placeText(strings.current_word,"current");
+    this.placeText(strings.future_text,"future");
+  }
+  this.placeText = function(text, location){
+    document.getElementById(location).innerText = text;
+  }
 };
 
