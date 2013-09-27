@@ -44,6 +44,8 @@ function Game(){
   this.reset = function(){
     document.getElementById("inputBox").value="";
     document.getElementById("time").innerText = "";
+    carMovement.reset()
+    ghostMovement.reset()
     that.start();
   }
 }
