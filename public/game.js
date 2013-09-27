@@ -12,19 +12,14 @@ function Game(){
     carMovement.calculateIdealPace();
     
     inputBox = document.getElementById('inputBox');
-    bindListeners(this);
+    this.bindListeners();
   }
-  this.end = function(){
-    inputBox.removeEventListener("input", game.checkUserInput);
-    timer.endTimer();
-    var totalTime = timer.calculateTime();
-    var results_string = "You finished in " + totalTime + " seconds!"
-    stringHandler.placeText(results_string, "time")
-  };
-  this.reset = function(){
-    document.getElementById("inputBox").value="";
-    document.getElementById("time").innerText = "";
-    that.start();
+  this.bindListeners = function(){
+    inputBox = document.getElementById('inputBox');
+    inputBox.addEventListener("input", this.checkUserInput);
+    inputBox.addEventListener("keypress", timer.startTimer);
+    button = document.getElementById("restart");
+    button.addEventListener("click", this.reset);
   }
   this.checkUserInput = function(){
     var inputText = document.getElementById('inputBox').value;
@@ -38,5 +33,17 @@ function Game(){
         that.end();
       }
     }
+  }
+  this.end = function(){
+    inputBox.removeEventListener("input", game.checkUserInput);
+    timer.endTimer();
+    var totalTime = timer.calculateTime();
+    var results_string = "You finished in " + totalTime + " seconds!"
+    stringHandler.placeText(results_string, "time")
+  };
+  this.reset = function(){
+    document.getElementById("inputBox").value="";
+    document.getElementById("time").innerText = "";
+    that.start();
   }
 }

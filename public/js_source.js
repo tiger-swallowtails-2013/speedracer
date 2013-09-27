@@ -49,14 +49,6 @@ function MoveImage() {
   }
 };
 
-function bindListeners(game) {
-  inputBox = document.getElementById('inputBox');
-  inputBox.addEventListener("input", game.checkUserInput);
-  inputBox.addEventListener("keypress", timer.startTimer);
-  button = document.getElementById("restart");
-  button.addEventListener("click", game.reset);
-}
-
 function Timer() {
   var log = {}
   var previousTime = new Date().getTime()
