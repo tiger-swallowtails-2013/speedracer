@@ -3,9 +3,9 @@ function MoveImage() {
   var pace = 0;
   var carLocation = 0;
   var spot = 0;
+  var carElement = document.getElementById("car");
 
   this.moveImage = function() {
-    var carElement = document.getElementById("car");
     var carLocation = carElement.style.left;
     spot += idealPace;
     carLocation = spot + "px";
@@ -24,8 +24,10 @@ function MoveImage() {
   };
 
   this.calculateIdealCarPace = function () {
-    trackLength = screen.width
+    trackLength = window.innerWidth - (carElement.width)
     idealPace = trackLength/this.countTotalExpectedWords();
+    pacePercentageOfWidth = idealPace/trackLength * 100;
+    console.log(pacePercentageOfWidth);
     return idealPace
   }
 };
