@@ -37,20 +37,8 @@ function StringHandler(){
       strings.future_text = strings.future_text.substring(i+1,strings.future_text.length);
     }
   };
-  this.evaluate = function(){
-    if (that.compareText(strings.current_word)){
-      if(that.shift() === false){
-        that.updateDom()
-        return false
-      }
-      that.updateDom()
-    }
-  };
-  this.compareText = function(word){
-    var inputText = document.getElementById('inputBox').value;
-    if (inputText === word) {
-      carMovement.moveImage();
-      ghostMovement.moveImage();
+  this.compareText = function(inputText){
+    if (inputText === strings.current_word) {
       return true;
     }
   }
