@@ -1,0 +1,57 @@
+#inputBox {
+  width: 270px;
+}
+
+#title_img {
+  background-image:url(title.png);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  height: 250px;
+}
+
+#all_text {
+  text-align: center;
+}
+
+#box {
+  position: fixed;
+  top: 80%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -138px;
+  border-width: 10px;
+}
+
+#current {
+  color: orange;
+}
+
+#future {
+  color: #99CCFF;
+}
+
+#past {
+  color: #99CCFF;
+}
+#car {
+  height: 65px;
+  width: 100px;
+  position: fixed;
+  bottom: 0;
+}
+#ghost {
+  height: 65px;
+  width: 100px;
+  position: fixed;
+  left: -300px;
+  bottom: 0;
+}
+
+body {
+  background-image:url(spdrcr.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
