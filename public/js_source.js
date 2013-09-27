@@ -86,9 +86,8 @@ function Timer() {
   this.rate= function(){
     var currentTime = new Date().getTime();
     timeChange = currentTime - previousTime;
-    log.timeChange = timeChange;
     previousTime = currentTime;
-    return log.timeChange
+    return timeChange
   }
 };
 
