@@ -5,6 +5,12 @@ function Game(){
     stringHandler = new StringHandler()
     stringHandler.initialize();
     timer = new Timer();
+    carMovement = new MoveImage;
+    ghostMovement = new MoveImage;
+    carMovement.calculateIdealPace;
+    ghostMovement.calculateIdealPace
+    console.log(carMovement.calculateIdealPace());
+    inputBox = document.getElementById('inputBox');
     bindListeners(this);
   }
   this.end = function(){
