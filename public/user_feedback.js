@@ -49,6 +49,8 @@ function StringHandler(){
   this.compareText = function(word){
     var inputText = document.getElementById('inputBox').value;
     if (inputText === word) {
+      carMovement.moveImage();
+      ghostMovement.moveImage();
       return true;
     }
   }
