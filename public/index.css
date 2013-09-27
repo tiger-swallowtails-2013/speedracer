@@ -12,23 +12,28 @@
 
 #all_text {
   text-align: center;
-  color: white;
 }
 
-#text_box {
+#box {
   position: fixed;
   top: 80%;
   left: 50%;
   margin-top: -50px;
-  margin-left: -180px;
+  margin-left: -138px;
   border-width: 10px;
-  border-color: white;
-  background-color: white;
-  padding: 40px;
-  padding-top: 10px;
-  border-radius: 25px;
 }
 
+#current {
+  color: orange;
+}
+
+#future {
+  color: #99CCFF;
+}
+
+#past {
+  color: #99CCFF;
+}
 #car {
   height: 100px;
   width: 10%;

@@ -1,21 +1,49 @@
-var spot = 0
+function MoveImage() {
+  var idealPace;
 
-var moveImage = function() {
-  var carElement = document.getElementById("car");
-  var carLocation = carElement.style.left;
-  console.log(carLocation)
-  spot += 100
-  carLocation = spot + "px"
-  console.log(carLocation)
-  carElement.style.left = carLocation;
-  trackLength = screen.width
-  wordsToWrite = document.getElementById("expectedText").innerHTML
-  console.log(wordsToWrite)
-};
+  this.moveImage = function() {
+    var carElement = document.getElementById("car");
+    var carLocation = carElement.style.left;
+    console.log(carLocation)
+    console.log(idealPace)
+    if (carLocation == 0) {
+      carLocation = idealPace
+      console.log(carLocation);
+      carElement.style.left = carLocation;
+    } else {
+      carLocation += carLocation;
+      carElement.style.left = carLocation;
+    }
+    // carElement.style.left = carLocation;
+    console.log("carElement: ");
+    console.log(carElement.style.left);
+    console.log(idealPace)
+    console.log(carLocation)
+  };
+
+  this.countTotalExpectedWords = function () {
+    var currentArray = [];
+    var total_words = 0;
+    currentWord = document.getElementById("current").innerHTML;
+    futureWords = document.getElementById("future").innerHTML;
+    currentArray.push(currentWord);
+    currentArray.push(futureWords.split(" "));
+    total_words = 1 + currentArray[1].length;
+    return total_words;
+  }
+
+  this.calculateIdealCarPace = function () {
+    trackLength = screen.width
+    idealPace = trackLength/this.countTotalExpectedWords();
+    return idealPace
+  }
+}
+
 
 compareText = function(word){
   inputText = document.getElementById('inputBox').value;
   if (inputText === word) {
+    imageMovement.moveImage();
     return true;
   } 
 };
