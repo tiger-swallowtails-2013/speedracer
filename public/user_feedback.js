@@ -1,32 +1,22 @@
-function placeText(text, location){
-  document.getElementById(location).innerText = text;
-}
-
-function ShiftWords(){
+function StringHandler(){
   var strings = {};
   var that = this;
-  this.initialize = function(original_string){
+  this.initialize = function(){
     strings.past_text = "";
     strings.current_word = "";
-    strings.future_text = original_string;
-
+    strings.future_text = this.newGameText();
     this.shift();
-    placeText(strings.past_text,"past");
-    placeText(strings.current_word,"current");
-    placeText(strings.future_text,"future");
+    this.updateDom();
   };
-  this.evaluate = function(){
-    if (compareText(strings.current_word)){
-      if(that.shift() === false){
-        //final word remains orange bug
-        return false
-      }
-      document.getElementById("inputBox").value="";
-      placeText(strings.past_text,"past");
-      placeText(strings.current_word,"current");
-      placeText(strings.future_text,"future");
-    }
-  };
+  this.newGameText = function(){
+    var collection = [
+      "The quick brown fox jumped over the lazy dog.",
+      "When it rains it pours.",
+      "The rain in spain falls mainly on the plain."
+    ];
+    var n = Math.floor(Math.random() * collection.length)
+    return collection[n];
+  }
   this.shift = function(){
     var i = strings.future_text.indexOf(" ");
     
@@ -47,5 +37,29 @@ function ShiftWords(){
       strings.future_text = strings.future_text.substring(i+1,strings.future_text.length);
     }
   };
+  this.evaluate = function(){
+    if (that.compareText(strings.current_word)){
+      if(that.shift() === false){
+        that.updateDom()
+        return false
+      }
+      that.updateDom()
+    }
+  };
+  this.compareText = function(word){
+    var inputText = document.getElementById('inputBox').value;
+    if (inputText === word) {
+      return true;
+    }
+  }
+  this.updateDom = function(){
+    document.getElementById("inputBox").value="";
+    this.placeText(strings.past_text,"past");
+    this.placeText(strings.current_word,"current");
+    this.placeText(strings.future_text,"future");
+  }
+  this.placeText = function(text, location){
+    document.getElementById(location).innerText = text;
+  }
 };
 
