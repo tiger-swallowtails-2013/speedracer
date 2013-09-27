@@ -4,12 +4,13 @@ function Game(){
   this.start = function(){
     stringHandler = new StringHandler()
     stringHandler.initialize();
+
     timer = new Timer();
+
     carMovement = new MoveImage;
     ghostMovement = new MoveImage;
-    carMovement.calculateIdealPace;
-    ghostMovement.calculateIdealPace
-    console.log(carMovement.calculateIdealPace());
+    carMovement.calculateIdealPace();
+    
     inputBox = document.getElementById('inputBox');
     bindListeners(this);
   }
@@ -26,8 +27,16 @@ function Game(){
     that.start();
   }
   this.checkUserInput = function(){
-    if (stringHandler.evaluate() === false){
-      that.end();
+    var inputText = document.getElementById('inputBox').value;
+    if (stringHandler.compareText(inputText)){
+      carMovement.moveImage();
+      ghostMovement.moveImage();
+
+      var anyMoreWords = stringHandler.shift();
+      stringHandler.updateDom();
+      if(anyMoreWords === false){
+        that.end();
+      }
     }
   }
 }
