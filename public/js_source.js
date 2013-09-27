@@ -28,7 +28,7 @@ function Timer() {
   };
 
   this.calculateTime= function(){
-    return log.endTime - log.startTime;
+    return Math.round((log.endTime - log.startTime)/1000);
   };
 };
 

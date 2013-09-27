@@ -44,16 +44,16 @@
 
 describe ('endgame', function(){
   it ('does not have a current_word', function(){
-    inputBox = document.createElement("inputBox")
+    var inputBox = document.createElement("inputBox")
     inputBox.id = "inputBox";
     document.body.appendChild(inputBox)
-    pastWord = document.createElement("span")
+    var pastWord = document.createElement("span")
     pastWord.id = "past";
     document.body.appendChild(pastWord);
-    currentWord = document.createElement("span");
+    var currentWord = document.createElement("span");
     currentWord.id = "current";
     document.body.appendChild(currentWord);
-    futureWord = document.createElement("span")
+    var futureWord = document.createElement("span")
     futureWord.id = "future";
     document.body.appendChild(futureWord);
     var stringHandler = new StringHandler();
@@ -64,7 +64,18 @@ describe ('endgame', function(){
       stringHandler.updateDom()
     expect(currentWord.innerText).toEqual("")
   });
-  it ('displays the users time', function(){});
+  it ('displays the users time', function(){
+    var timeDisplay = document.createElement("span")
+    timeDisplay.id = "time"
+    document.body.appendChild(timeDisplay)
+    var timer = new Timer()
+    timer.startTimer()
+    timer.endTimer()
+    timeCalc = timer.calculateTime()
+    timeDisplay.innerText = timeCalc
+    expect(timeDisplay.innerText).toMatch(/\d*/)
+    // this passes if the removeEventListener in Timer.startTimer is commented out
+  });
 });
 
 describe ('restartgame', function(){

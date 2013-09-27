@@ -11,7 +11,7 @@ function Game(){
   }
   this.end = function(){
     timer.endTimer();
-    var totalTime = Math.round(timer.calculateTime()/1000);
+    var totalTime = timer.calculateTime();
     alert("You finished in " + totalTime +" seconds");
     inputBox.removeEventListener("input", game.checkUserInput);
   };
