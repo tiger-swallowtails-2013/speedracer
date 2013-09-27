@@ -1,25 +1,12 @@
 function MoveImage() {
   var idealPace;
+  var current_location = 0 
 
   this.moveImage = function() {
     var carElement = document.getElementById("car");
     var carLocation = carElement.style.left;
-    console.log(carLocation)
-    console.log(idealPace)
-    if (carLocation == 0) {
-      carLocation = idealPace
-      console.log(carLocation);
-      carElement.style.left = carLocation;
-    } else {
-      carLocation += carLocation;
-      carElement.style.left = carLocation;
-    }
-    // carElement.style.left = carLocation;
-    console.log("carElement: ");
-    console.log(carElement.style.left);
-    console.log(idealPace)
-    console.log(carLocation)
-  };
+    carElement.style.left += idealPace
+  } 
 
   this.countTotalExpectedWords = function () {
     var currentArray = [];
