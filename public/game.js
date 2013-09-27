@@ -10,9 +10,11 @@ function Game(){
     gameWords = new ShiftWords
     gameWords.initialize(textStorage());
     timer = new Timer();
-    imageMovement = new MoveImage;
-    imageMovement.calculateIdealCarPace;
-    console.log(imageMovement.calculateIdealCarPace());
+    carMovement = new MoveImage;
+    ghostMovement = new MoveImage;
+    carMovement.calculateIdealPace;
+    ghostMovement.calculateIdealPace
+    console.log(carMovement.calculateIdealPace());
     inputBox = document.getElementById('inputBox');
     bindListenersForInputBox(inputBox, this);
   }
