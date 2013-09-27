@@ -12,11 +12,12 @@ function Game(){
   this.end = function(){
     timer.endTimer();
     var totalTime = timer.calculateTime();
-    alert("You finished in " + totalTime +" seconds");
+    document.getElementById("time").innerText = "You finished in " + totalTime +" seconds!"
     inputBox.removeEventListener("input", game.checkUserInput);
   };
   this.reset = function(){
     document.getElementById("inputBox").value="";
+    document.getElementById("time").innerText = "";
     that.start();
   }
   this.checkUserInput = function(){
