@@ -49,16 +49,6 @@ function MoveImage() {
   }
 };
 
-
-compareText = function(word){
-  inputText = document.getElementById('inputBox').value;
-  if (inputText === word) {
-    // carMovement.moveImage();
-    // ghostMovement.moveImage();
-    return true;
-  } 
-};
-
 function bindListeners(game) {
   inputBox = document.getElementById('inputBox');
   inputBox.addEventListener("input", game.checkUserInput);
