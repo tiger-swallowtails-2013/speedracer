@@ -4,12 +4,13 @@ function Game(){
   this.start = function(){
     stringHandler = new StringHandler()
     stringHandler.initialize();
+    
     timer = new Timer();
+
     carMovement = new MoveImage;
     ghostMovement = new MoveImage;
-    carMovement.calculateIdealPace;
-    ghostMovement.calculateIdealPace
-    console.log(carMovement.calculateIdealPace());
+    carMovement.calculateIdealPace();
+    
     inputBox = document.getElementById('inputBox');
     bindListeners(this);
   }
