@@ -16,7 +16,7 @@
 
 #box {
   position: fixed;
-  top: 80%;
+  top: 70%;
   left: 50%;
   margin-top: -50px;
   margin-left: -138px;
@@ -35,17 +35,27 @@
   color: #99CCFF;
 }
 #car {
-  height: 65px;
-  width: 100px;
+  height: 165px;
+  width: 200px;
   position: fixed;
   bottom: 0;
 }
 #ghost {
-  height: 65px;
-  width: 100px;
+  height: 115px;
+  width: 150px;
   position: fixed;
   left: -300px;
   bottom: 0;
+}
+
+#restart {
+  position: relative;
+  left: 35%;
+}
+
+#time {
+  position:relative;
+  left:18%;
 }
 
 body {
