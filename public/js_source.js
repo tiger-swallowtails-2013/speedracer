@@ -1,12 +1,16 @@
 function MoveImage() {
   var idealPace;
-  var current_location = 0 
+  var pace = 0;
+  var carLocation = 0;
+  var spot = 0;
 
   this.moveImage = function() {
     var carElement = document.getElementById("car");
     var carLocation = carElement.style.left;
-    carElement.style.left += idealPace
-  } 
+    spot += idealPace;
+    carLocation = spot + "px";
+    carElement.style.left = carLocation;
+  };
 
   this.countTotalExpectedWords = function () {
     var currentArray = [];
@@ -17,14 +21,14 @@ function MoveImage() {
     currentArray.push(futureWords.split(" "));
     total_words = 1 + currentArray[1].length;
     return total_words;
-  }
+  };
 
   this.calculateIdealCarPace = function () {
     trackLength = screen.width
     idealPace = trackLength/this.countTotalExpectedWords();
     return idealPace
   }
-}
+};
 
 
 compareText = function(word){
