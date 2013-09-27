@@ -1,11 +1,9 @@
-
-
 function Game(){
   var stringHandler;
   var that = this;
   this.start = function(){
     stringHandler = new StringHandler()
-    stringHandler.initialize(textStorage());
+    stringHandler.initialize();
     timer = new Timer();
     bindListeners(this);
   }
@@ -26,9 +24,4 @@ function Game(){
       that.end();
     }
   }
-}
-
-function textStorage(){
-  var collection = ["The quick brown fox jumped over the lazy dog.", "When it rains it pours.", "The rain in spain falls mainly on the plain."];
-  return collection[Math.floor(Math.random() * collection.length)];
 }

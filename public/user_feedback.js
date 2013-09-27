@@ -1,13 +1,22 @@
 function StringHandler(){
   var strings = {};
   var that = this;
-  this.initialize = function(original_string){
+  this.initialize = function(){
     strings.past_text = "";
     strings.current_word = "";
-    strings.future_text = original_string;
+    strings.future_text = this.newGameText();
     this.shift();
     this.updateDom();
   };
+  this.newGameText = function(){
+    var collection = [
+      "The quick brown fox jumped over the lazy dog.",
+      "When it rains it pours.",
+      "The rain in spain falls mainly on the plain."
+    ];
+    var n = Math.floor(Math.random() * collection.length)
+    return collection[n];
+  }
   this.shift = function(){
     var i = strings.future_text.indexOf(" ");
     
