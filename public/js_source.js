@@ -53,8 +53,8 @@ function MoveImage() {
 compareText = function(word){
   inputText = document.getElementById('inputBox').value;
   if (inputText === word) {
-    carMovement.moveImage();
-    ghostMovement.moveImage();
+    // carMovement.moveImage();
+    // ghostMovement.moveImage();
     return true;
   } 
 };
