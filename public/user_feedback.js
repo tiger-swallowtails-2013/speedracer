@@ -18,7 +18,7 @@ function StringHandler(){
     document.getElementById(location).innerText = text;
   }
   this.evaluate = function(){
-    if (compareText(strings.current_word)){
+    if (that.compareText(strings.current_word)){
       if(that.shift() === false){
         that.updateDom()
         return false
@@ -26,6 +26,12 @@ function StringHandler(){
       that.updateDom()
     }
   };
+  this.compareText = function(word){
+    var inputText = document.getElementById('inputBox').value;
+    if (inputText === word) {
+      return true;
+    }
+  }
   this.shift = function(){
     var i = strings.future_text.indexOf(" ");
     
@@ -33,19 +39,14 @@ function StringHandler(){
       document.getElementById("inputBox").value="";
       strings.past_text += strings.current_word;
       strings.current_word = ""
-       console.log("endshift")
-
       return false;
     }
     if (i === -1){ 
-            console.log("lastshift")
-
       strings.past_text += strings.current_word;
       strings.current_word = strings.future_text;
       strings.future_text = "";
     } 
     else {
-      console.log("goshift")
       strings.past_text += strings.current_word;
       strings.current_word = strings.future_text.substring(0,i+1);
       strings.future_text = strings.future_text.substring(i+1,strings.future_text.length);
