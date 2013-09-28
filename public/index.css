@@ -1,26 +1,37 @@
+#sentence {
+  margin-left: 10px
+}
 #inputBox {
-  width: 270px;
+  width: 75px;
+  height: 20px;
+  position: relative;
+  left: 22%;
 }
 
 #title_img {
-  background-image:url(title.png);
+  background-image:url(scoobyracer.png);
   background-repeat: no-repeat;
-  background-size: 80%;
+  background-size: 50%;
   background-position: center;
   height: 250px;
+  min-width: 1200px;
+  max-height: 100%;
 }
 
 #all_text {
-  text-align: center;
+  margin-left: -30px;
+  font-size: x-large;
+  float: center;
 }
 
 #box {
   position: fixed;
   top: 70%;
-  left: 50%;
+  left: 51%;
   margin-top: -50px;
   margin-left: -138px;
   border-width: 10px;
+  min-width: 100px;
 }
 
 #current {
@@ -39,6 +50,7 @@
   width: 200px;
   position: fixed;
   bottom: 0;
+  min-height: 165px;
 }
 #ghost {
   height: 115px;
@@ -46,11 +58,12 @@
   position: fixed;
   left: -300px;
   bottom: 0;
+  min-height: 115px;
 }
 
 #restart {
   position: relative;
-  left: 35%;
+  left: 22%;
 }
 
 #time {
@@ -60,8 +73,15 @@
 
 body {
   background-image:url(spdrcr.jpg);
-  background-size: 100%;
+  background-size: auto;
   background-repeat: no-repeat;
   background-color: black;
+  background-position: center;
+  min-width: 1200px;
+  min-height: 800px;
 }
 
+#sentence {
+  background-color: black;
+  text-align: center;
+}
