@@ -2,8 +2,7 @@ function Game(){
   var stringHandler;
   var that = this;
   this.start = function(){
-    stringHandler = new StringHandler()
-    stringHandler.initialize();
+    stringHandler = new StringHandler();
 
     timer = new Timer();
 
@@ -44,6 +43,8 @@ function Game(){
   this.reset = function(){
     document.getElementById("inputBox").value="";
     document.getElementById("time").innerText = "";
+    carMovement.reset()
+    ghostMovement.reset()
     that.start();
   }
 }
