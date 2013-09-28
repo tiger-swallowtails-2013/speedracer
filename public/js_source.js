@@ -1,6 +1,5 @@
 function MoveImage() {
   var idealPace;
-  var pace = 0;
   var carLocation = 0;
   var ghostLocation = 0;
   var carSpot = 0;
@@ -46,6 +45,12 @@ function MoveImage() {
     pacePercentageOfWidth = idealPace/trackLength * 100;
     console.log(pacePercentageOfWidth);
     return idealPace
+  }
+  this.reset = function(){
+    carElement.style.left = 0;
+    ghostElement.style.left = -300;
+    carSpot = 0;
+    ghostSpot = 0;
   }
 };
 
