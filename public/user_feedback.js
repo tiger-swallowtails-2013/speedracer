@@ -6,23 +6,24 @@ function StringHandler(){
   };
   this.shift();
   this.updateDom();
-  this.compareText = function(inputText){
-    if (inputText === this.strings.current_word) {
-      return true;
-    }
-  }
 };
 
-StringHandler.prototype.placeText = function(text, location){
-    document.getElementById(location).innerText = text;
+StringHandler.prototype.compareText = function(inputText){
+  if (inputText === this.strings.current_word) {
+    return true;
   }
+}
+
+StringHandler.prototype.placeText = function(text, location){
+  document.getElementById(location).innerText = text;
+}
 
 StringHandler.prototype.updateDom = function(){
-    document.getElementById("inputBox").value="";
-    this.placeText(this.strings.past_text,"past");
-    this.placeText(this.strings.current_word,"current");
-    this.placeText(this.strings.future_text,"future");
-  }
+  document.getElementById("inputBox").value="";
+  this.placeText(this.strings.past_text,"past");
+  this.placeText(this.strings.current_word,"current");
+  this.placeText(this.strings.future_text,"future");
+}
 
 StringHandler.prototype.newGameText = function(){
   var collection = [
