@@ -55,26 +55,23 @@ function MoveImage() {
 };
 
 function Timer() {
-  var log = {}
-  var previousTime = new Date().getTime()
-
+  var that = this;
   this.startTimer= function() {
-    startTime = new Date().getTime();
+    that.startTime = new Date().getTime();
+    that.previousTime = that.startTime
     inputBox.removeEventListener("keypress", timer.startTimer);
-    log.startTime = startTime;
   };
   this.endTimer= function() {
-    endTime = new Date().getTime();
-    log.endTime = endTime;
+    that.endTime = new Date().getTime();
   };
   this.calculateTime= function(){
-    return Math.round((log.endTime - log.startTime)/1000);
+    return Math.round((that.endTime - that.startTime)/1000);
   };
 
   this.rate= function(){
     var currentTime = new Date().getTime();
-    timeChange = currentTime - previousTime;
-    previousTime = currentTime;
+    var timeChange = currentTime - that.previousTime;
+    that.previousTime = currentTime;
     return timeChange
   }
 };
